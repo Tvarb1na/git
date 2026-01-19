@@ -1,0 +1,58 @@
+---
+- name: Nginx
+  hosts: all
+  become: true
+
+  vars:
+    source_folder: /infra/templates
+    destination_folder: /var/www/html
+
+  tasks:
+    - name: Debug site_title
+      debug:
+        var: site_title
+
+    - block:
+        - name: Install nginx for Redhat
+          dnf:
+            name: nginx
+            state: latest
+        - name: Auto boot service
+          service:
+            name: nginx
+            state: started
+            enabled: true
+      when: ansible_os_family == "Redhat"
+
+    - block:
+        - name: Install nginx for Debian
+          apt:
+            name: nginx
+            state: latest
+        - name: Auto boot service
+          service:
+            name: nginx
+            state: started
+            enabled: true
+      when: ansible_os_family == "Debian"
+
+    - name: Copy start page
+      template:
+        src: "{{ source_folder }}/index.j2"
+        dest: "{{ destination_folder }}/index.html"
+        mode: '0555'
+      notify:
+        - Restart Nginx Redhat
+        - Restart Nginx Debian
+
+  handlers:
+    - name: Restart Nginx Redhat
+      service:
+        name: nginx
+        state: restarted
+      when: ansible_os_family == "Redhat"
+    - name: Restart Nginx Debian
+      service:
+        name: nginx
+        state: restarted
+      when: ansible_os_family == "Debian"

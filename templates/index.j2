@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+        <meta charset="UTF-8">
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, {{ bg_color_start }}, {{ bg_color_end }});
+            color: {{ text_color }};
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 60px 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.3em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ welcome_message }}</h1>
+        <p>{{ description }}</p>
+    </header>
+    <footer>
+        <p>© {{ year }} — {{ author }}</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ site_title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, {{ bg_color_start }}, {{ bg_color_end }});
+            color: {{ text_color }};
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            padding: 60px 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.3em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ welcome_message }}</h1>
+        <p>{{ description }}</p>
+    </header>
+    <footer>
+        <p>© {{ year }} — {{ author }}</p>
+    </footer>
+</body>
+</html>

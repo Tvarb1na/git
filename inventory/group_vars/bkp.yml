@@ -1,0 +1,10 @@
+---
+site_title: "Stage"
+bg_color_start: "#6f1985"
+bg_color_end: "#00f234"
+text_color: "#ffffff"
+welcome_message: "Welcom on my server"
+description: "This page generateg for Ansible template"
+year: "2026"
+author: "Tvarb1na"
+
